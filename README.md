@@ -1,46 +1,49 @@
 # blockchain-subasta
 Contrato de subasta con reembolso parcial y depósitos
 
-Funcionalidades Requeridas
+# Subasta - Contrato Inteligente
 
-📦 Constructor
-Inicializa la subasta ingresando el tiempo en segundos.
+Este es un contrato inteligente desarrollado en Solidity que permite realizar una subasta descentralizada con manejo de depósitos, reembolsos parciales, comisión y eventos.
 
-🏷️ Función para ofertar
-	Permite a los participantes ofertar por el artículo.
-	Una oferta es válida si:
-	Es mayor en al menos 5% que la mayor oferta actual.
-	Se realiza mientras la subasta está activa.
- 
-🥇 Mostrar ganador
-	Devuelve el oferente ganador y el valor de la oferta ganadora.
- 
-📜 Mostrar ofertas
-	Devuelve la lista de oferentes y sus respectivos montos ofrecidos.
- 
-💸 Devolver depósitos
-	Al finalizar la subasta:
-	Se devuelve el depósito a los oferentes no ganadores.
-	Se descuenta una comisión del 2%.
- 
-💰 Manejo de depósitos
-	Las ofertas deben:
-	Ser depositadas en el contrato.
-	Estar asociadas a las direcciones de los oferentes.
- 
-📢 Eventos requeridos
-	Nueva Oferta: Emitido cuando se realiza una nueva oferta.
-	Subasta Finalizada: Emitido cuando finaliza la subasta.
+## Funcionalidades
 
- 
-🚀 Funcionalidades Avanzadas
+- Registro de ofertas por dirección.
+- La nueva oferta debe superar en al menos **5%** la mejor oferta actual.
+- Solo se puede ofertar **mientras la subasta está activa**.
+- El **ganador** es quien tenga la mejor oferta al finalizar.
+- Los **no ganadores** pueden retirar sus fondos con un **2% de comisión**.
+- Se permite retirar el **excedente** en tiempo real si se ofertó más de una vez.
+- Uso de `msg.sender` para identificar a cada participante.
+- Emisión de eventos: `NuevaOferta`, `SubastaFinalizada`, `FondosRetirados`, `ReembolsoParcial`.
 
-🔁 Reembolso parcial
-Durante la subasta, los participantes pueden retirar el importe por encima de su última oferta válida.
-Ejemplo:
-Tiempo	Usuario	Oferta
-T0	Usuario 1	1 ETH
-T1	Usuario 2	2 ETH
-T2	Usuario 1	3 ETH
-→ Usuario 1 puede pedir el reembolso de la oferta T0 (1 ETH).
+## Tecnologías
+
+- Solidity ^0.8.26
+- Remix IDE para desarrollo y pruebas
+- Red de pruebas Ethereum (como Sepolia)
+
+## Estructura del Proyecto
+
+blockchain-subasta/
+│
+└── SubastaM2Final.sol # Contrato inteligente principal
+│
+└── README.md # Este archivo
+
+
+## Cómo Funciona
+
+1. Abrir el contrato en [Remix IDE](https://remix.ethereum.org/)
+2. Compilar con la versión 0.8.26
+3. Desplegar el contrato indicando la duración en segundos (por ejemplo, `120` para 2 minutos)
+4. Cambiar de cuenta para simular distintos usuarios
+5. Llamar a `ofertar()` enviando ETH (recuerda superar la oferta en +5%)
+6. Finalizar la subasta con `finalizarSubasta()`
+7. Llamar a `retirarDeposito()` si no eres el ganador o `retirarFondos()` si eres el owner
+
+## Autor
+
+*Odalis*
+Ethereum Developer - Proyecto final de curso Solidity
+
 
