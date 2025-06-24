@@ -31,8 +31,10 @@ Inicializa la subasta ingresando el tiempo en segundos.
 📢 Eventos requeridos
 	Nueva Oferta: Emitido cuando se realiza una nueva oferta.
 	Subasta Finalizada: Emitido cuando finaliza la subasta.
+
  
 🚀 Funcionalidades Avanzadas
+
 🔁 Reembolso parcial
 Durante la subasta, los participantes pueden retirar el importe por encima de su última oferta válida.
 Ejemplo:
