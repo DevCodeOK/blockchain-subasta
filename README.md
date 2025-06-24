@@ -44,6 +44,6 @@ blockchain-subasta/
 ## Autor
 
 *Odalis*
-Ethereum Developer - Proyecto final de curso Solidity
+Ethereum Developer - M2 Trabajo final de curso Solidity
 
 
