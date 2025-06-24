@@ -2,6 +2,7 @@
 Contrato de subasta con reembolso parcial y depósitos
 
 Funcionalidades Requeridas
+
 📦 Constructor
 Inicializa la subasta ingresando el tiempo en segundos.
 
